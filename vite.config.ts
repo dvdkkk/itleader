@@ -16,6 +16,7 @@ export default defineConfig(() => {
         input: {
           main: path.resolve(__dirname, 'index.html'),
           courses01: path.resolve(__dirname, 'courses01.html'),
+          courses: path.resolve(__dirname, 'courses.html'),
         },
       },
     },
