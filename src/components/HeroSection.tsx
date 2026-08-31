@@ -1,5 +1,5 @@
 import React from 'react';
-import { COURSE_SUMMARY } from '../data/bootcampData';
+import { COURSE_SUMMARY, CLOUD_COURSE_SUMMARY, KUKBI_COURSE_SUMMARY, INTRO_COURSE_SUMMARY } from '../data/bootcampData';
 import aiChipBg from '../assets/images/ai_chip_original_bg_1785136173674.jpg';
 import { ScrollReveal } from './ScrollReveal';
 import {
@@ -20,9 +20,24 @@ import {
 interface HeroSectionProps {
   onOpenApplication: () => void;
   onOpenCalculator: () => void;
+  courseType?: 'kukbi' | 'fullstack' | 'cloud' | 'intro';
 }
 
-export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenApplication, onOpenCalculator }) => {
+export const HeroSection: React.FC<HeroSectionProps> = ({ 
+  onOpenApplication, 
+  onOpenCalculator,
+  courseType = 'fullstack'
+}) => {
+  let summary = COURSE_SUMMARY;
+  if (courseType === 'kukbi') {
+    summary = KUKBI_COURSE_SUMMARY;
+  } else if (courseType === 'cloud') {
+    summary = CLOUD_COURSE_SUMMARY;
+  } else if (courseType === 'intro') {
+    summary = INTRO_COURSE_SUMMARY;
+  }
+
+
   return (
     <section id="hero" className="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden w-full max-w-full">
       {/* AI Chip Tech Background Image & Edge Blending */}
@@ -50,7 +65,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenApplication, onO
           <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2.5 mb-6">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#c5a47e]/10 border border-[#c5a47e]/30 text-[#f7e7ce] text-xs font-semibold">
               <TrendingUp className="w-3.5 h-3.5 text-[#c5a47e]" />
-              <span>{COURSE_SUMMARY.campus}</span>
+              <span>{summary.campus}</span>
             </div>
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold">
               <Zap className="w-3.5 h-3.5" />
@@ -62,13 +77,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenApplication, onO
           <div className="text-center lg:text-left max-w-4xl mx-auto lg:mx-0">
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.15] mb-4">
               <span className="text-gradient-gold block whitespace-pre-line">
-                {COURSE_SUMMARY.title}
+                {summary.title}
               </span>
             </h1>
 
             <div className="p-4 sm:p-5 rounded-2xl bg-[#12141a]/90 border border-[#c5a47e]/20 mb-8 backdrop-blur-md glow-gold shadow-2xl">
               <p className="text-lg sm:text-xl font-bold text-gray-100 leading-snug">
-                {COURSE_SUMMARY.courseTitle}
+                {summary.courseTitle}
               </p>
             </div>
           </div>
@@ -94,7 +109,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenApplication, onO
                   </div>
                   <div>
                     <span className="text-xs font-medium text-gray-400 block">모집인원</span>
-                    <span className="text-sm font-bold text-white">{COURSE_SUMMARY.capacity}</span>
+                    <span className="text-sm font-bold text-white">{summary.capacity}</span>
                     <span className="ml-2 text-[11px] font-semibold text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded">
                       선착순 마감예정
                     </span>
@@ -108,7 +123,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenApplication, onO
                   </div>
                   <div>
                     <span className="text-xs font-medium text-gray-400 block">개강일정</span>
-                    <span className="text-sm font-bold text-white">{COURSE_SUMMARY.duration}</span>
+                    <span className="text-sm font-bold text-white">{summary.duration}</span>
                   </div>
                 </div>
 
@@ -119,7 +134,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenApplication, onO
                   </div>
                   <div>
                     <span className="text-xs font-medium text-gray-400 block">교육시간</span>
-                    <span className="text-sm font-bold text-white">{COURSE_SUMMARY.schedule}</span>
+                    <span className="text-sm font-bold text-white">{summary.schedule}</span>
                   </div>
                 </div>
 
@@ -130,7 +145,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenApplication, onO
                   </div>
                   <div>
                     <span className="text-xs font-medium text-gray-400 block">훈련장려금</span>
-                    <span className="text-sm font-bold text-amber-300">{COURSE_SUMMARY.stipendNote}</span>
+                    <span className="text-sm font-bold text-amber-300">{summary.stipendNote}</span>
                   </div>
                 </div>
               </div>
@@ -141,8 +156,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenApplication, onO
               <div>
                 <span className="text-xs text-gray-400 block">수강료 (원수강료 → 자비부담금)</span>
                 <div className="flex items-baseline gap-2">
-                  <span className="text-sm text-gray-400 line-through">{COURSE_SUMMARY.originalPrice}</span>
-                  <span className="text-2xl font-black text-[#c5a47e]">{COURSE_SUMMARY.discountedPrice}</span>
+                  <span className="text-sm text-gray-400 line-through">{summary.originalPrice}</span>
+                  <span className="text-2xl font-black text-[#c5a47e]">{summary.discountedPrice}</span>
                   <span className="text-xs font-bold text-emerald-400 bg-emerald-500/20 px-2 py-0.5 rounded-full">
                     95% 이상 국비지원
                   </span>
@@ -183,7 +198,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenApplication, onO
               </h3>
 
               <p className="text-xs text-gray-300 leading-relaxed mb-6">
-                고용노동부 국민내일배움카드 발급 시 수강료 부담 없이 6개월 동안 실무 프로젝트와 AI 풀스택 개발 역량을 집중 습득합니다.
+                고용노동부 국민내일배움카드 발급 시 수강료 부담 없이 6개월 동안 실무 프로젝트와 IT 역량을 집중 습득합니다.
               </p>
 
               <ul className="space-y-3 mb-6">

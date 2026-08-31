@@ -20,23 +20,23 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenApplication, onOpenCalcula
   }, []);
 
   const navLinks = [
-    { name: '교육소개', href: '#hero' },
-    { name: '핵심포인트', href: '#keypoints' },
-    { name: '취업처', href: '#employment' },
-    { name: '취업지원', href: '#careersupport' },
-    { name: '커리큘럼', href: '#curriculum' },
-    { name: '수강후기', href: '#interviews' },
-    { name: 'FAQ', href: '#faq' },
+    { name: '국비지원과정', href: '/course01.html' },
+    { name: 'AI자바풀스택 과정', href: '/course02.html' },
+    { name: 'AI클라우드 과정', href: '/course03.html' },
+    { name: '교육원 소개', href: '/course04.html' },
   ];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
-    setMobileMenuOpen(false);
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    if (href.startsWith('#')) {
+      e.preventDefault();
+      setMobileMenuOpen(false);
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   };
+
 
   return (
     <header
@@ -48,7 +48,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenApplication, onOpenCalcula
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Logo & Brand Identity */}
-        <a href="#hero" className="flex items-center gap-2.5 sm:gap-3 group py-1 transition-all">
+        <a href="/index.html" className="flex items-center gap-2.5 sm:gap-3 group py-1 transition-all">
           <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-[#161822] border border-[#c5a47e]/35 p-1 flex items-center justify-center shadow-md group-hover:border-[#c5a47e] group-hover:scale-105 transition-all shrink-0">
             <KLogoIcon className="w-full h-full rounded-lg" />
           </div>

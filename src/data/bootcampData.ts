@@ -20,9 +20,275 @@ export const COURSE_SUMMARY: CourseSummary = {
   duration: "[6기]8/31, [7기]10/19, [8기]12/21",
   schedule: "09:00~17:50 (월-금) ㅣ 6개월과정",
   originalPrice: "9,493,000원",
+  discountedPrice: "국취제 1유형시 0원",
+  stipendNote: "국취제 연계시 최대 80만원 지원"
+};
+
+export const KUKBI_COURSE_SUMMARY: CourseSummary = {
+  badge: "내일배움카드 전액지원",
+  campus: "내일배움카드 전액지원",
+  title: "국비지원 교육제도\n& 훈련 수당 안내",
+  courseTitle: "국민내일배움카드 최대 100% 전액 지원 및 매월 훈련수당 추가 지급 혜택",
+  capacity: "상시접수",
+  duration: "과정별 순차 개강",
+  schedule: "09:00~17:50 (월-금)",
+  originalPrice: "9,493,000원",
+  discountedPrice: "0원 (전액 무료)",
+  stipendNote: "훈련장려금 월 최대 80만원 지원"
+};
+
+export const INTRO_COURSE_SUMMARY: CourseSummary = {
+  badge: "고용노동부 최우수 훈련기관",
+  campus: "고용노동부 최우수 훈련기관",
+  title: "한국정보교육원\n소개 및 연혁",
+  courseTitle: "20년 역사의 검증된 IT 취업 명문, 고용노동부 지정 3년 연속 우수훈련기관",
+  capacity: "전문 상담사 대기",
+  duration: "설립 20주년",
+  schedule: "서울캠퍼스 보라매샤르망",
+  originalPrice: "취업 매칭 연계율 85%",
+  discountedPrice: "최우수 기관 등급",
+  stipendNote: "실무 전문 장비 및 1:1 상담실 운영"
+};
+
+export const CLOUD_COURSE_SUMMARY: CourseSummary = {
+  badge: "2025 KDT 취업률 85%",
+  campus: "2025 KDT 취업률 85%",
+  title: "클라우드 엔지니어\n부트캠프 과정",
+  courseTitle: "현업에서 바로 통하는 클라우드 인프라 설계, 구축 & 운영 실무 전문가 완성",
+  capacity: "25명",
+  duration: "[1기]8/31, [2기]10/19, [3기]12/21",
+  schedule: "09:00~17:50 (월-금) ㅣ 6개월과정",
+  originalPrice: "9,493,000원",
   discountedPrice: "0 ~ 40만원",
   stipendNote: "국취제 연계시 최대 80만원 지원"
 };
+
+export const CLOUD_CURRICULUM_STEPS: CurriculumStepItem[] = [
+  {
+    stepNumber: 1,
+    stepTitle: "리눅스 서버 운영 시스템",
+    details: "클라우드 플랫폼을 이루는 운영 관리 시스템의 시작 / 사용자 관리 / 서버 관리와 원격접속 / 네트워크 서비스 구축 / 가상화 시스템 구축",
+    category: "backend",
+    skills: ["Linux", "Server OS", "Virtualization"]
+  },
+  {
+    stepNumber: 2,
+    stepTitle: "클라우드 서비스를 위한 네트워크 기본",
+    details: "클라우드 서비스 이용과 리소스간 통신을 위한 시작과 끝 / 데이터 센터 네트워크 기술 / 접근 제어와 트래픽 관리 / 라우팅과 스위칭 / 클라우드 데이터 센터 운영을 위한 BGP, MPLS",
+    category: "core",
+    skills: ["Networking", "Routing", "BGP", "MPLS"]
+  },
+  {
+    stepNumber: 3,
+    stepTitle: "데이터 베이스",
+    details: "클라우드 리소스를 보관, 관리하기위한 데이터 관리의 시작 / 관리형 데이터베이스의 이해 / 쿼리 작성과 최적화 / elasticsearch(opensearch) 기반의 데이터 관리 / elasticsearch 로 시작하는 머신러닝",
+    category: "backend",
+    skills: ["Database", "Elasticsearch", "Query Optimization", "Opensearch"]
+  },
+  {
+    stepNumber: 4,
+    stepTitle: "클라우드 자동화를 위한 파이썬 프로그래밍",
+    details: "인프라 관리를 위한 스크립트 언어의 시작 / 변수와 자료형 / 기본 문법(if, for, while) / 함수의 개념과 작성 / 객체지향 프로그래밍",
+    category: "core",
+    skills: ["Python", "Automation", "OOP", "Scripting"]
+  },
+  {
+    stepNumber: 5,
+    stepTitle: "스트리밍 데이터 처리를 위한 분산 플랫폼",
+    details: "효과적인 대용량 데이터 처리의 첫걸음 / 컨테이너 기반의 카프카 설치 / 메시지 작성과 데이터 읽기 / 데이터 파이프라인 / (토이프로젝트) 카프카, ES, Kibana 기반 대용량 데이터 분석 및 시각화",
+    category: "cloud",
+    skills: ["Kafka", "Kibana", "Data Pipeline", "Toy Project"]
+  },
+  {
+    stepNumber: 6,
+    stepTitle: "오픈소스 쿠버네티스 아키텍처 설계 및 구현",
+    details: "클라우드 네이티브기반의 개발과 운영을 위한 모든 것 / Pod 기반의 애플리케이션 배포 / 서비스, 인그레스를 이용한 애플리케이션 접속 / Pod 자원관리 및 모니터링 / k8s 기반의 CI.CD / 고가용성 기반의 k8s 클러스터(멀티 master, etcd 백업/복구)",
+    category: "cloud",
+    skills: ["Kubernetes", "K8s Cluster", "etcd", "CI/CD"]
+  },
+  {
+    stepNumber: 7,
+    stepTitle: "MLOps 인프라",
+    details: "kubernetes 환경에서 kubeflow 기반의 MLOps 환경 구성 / notebook server / katib / pipeline / KFServe",
+    category: "ai",
+    skills: ["MLOps", "Kubeflow", "Katib", "KFServe"]
+  },
+  {
+    stepNumber: 8,
+    stepTitle: "IaC 기반의 인프라 설계",
+    details: "테라폼 코드로 작성하는 인프라 설계의 첫걸음 / 테라폼을 사용한 코드형 인프라 / 테라폼을 사용한 인프라 배포 자동화 / (토이프로젝트) Terraform 기반 클라우드 인프라 환경 구현(AWS, OpenStack)",
+    category: "cloud",
+    skills: ["Terraform", "IaC", "AWS", "OpenStack", "Infrastructure Code"]
+  },
+  {
+    stepNumber: 9,
+    stepTitle: "컨테이너 서비스 개발을 위한 Docker platform 활용",
+    details: "컨테이너 기반의 개발과 인프라 운영의 시작 / Dockerfile 이용한 이미지 작성 / 도커 컨테이너와 이미지 구조 이해 / 도커 컴포즈를 이용한 컨테이너 환경 설계",
+    category: "cloud",
+    skills: ["Docker", "Dockerfile", "Docker Compose", "Containers"]
+  },
+  {
+    stepNumber: 10,
+    stepTitle: "AWS 클라우드 기술",
+    details: "세계최고의 퍼블릭 클라우드 서비스를 위한 시작 / EC2 인스턴스 / VPC, Subnet 기반의 네트워크 환경 설계 / 데이터베이스와 스토리지",
+    category: "cloud",
+    skills: ["AWS", "EC2", "VPC", "Database", "Storage"]
+  },
+  {
+    stepNumber: 11,
+    stepTitle: "고가용성 중심의 AWS 아키텍처 설계",
+    details: "심층적인 AWS 서비스를 이용하기 위한 방법 / AWS 기반의 IaC / 서버리스 아키텍처 / 멀티 티어 아키텍처 설계 / 멀티 리전, 멀티 존 구성 / ASG/keda + karpenter 기반의 오토 스케일링",
+    category: "cloud",
+    skills: ["High Availability", "AWS Architecture", "Keda", "Karpenter", "Serverless"]
+  },
+  {
+    stepNumber: 12,
+    stepTitle: "생성형 AI 서비스 개발을 위한 Amazon Bedrock",
+    details: "AWS에서 시작하는 생성형 AI 서비스 / 프롬프트 엔지니어링 / RAG 구현하기 / Bedrock 으로 Agent 구현하기",
+    category: "ai",
+    skills: ["Generative AI", "Amazon Bedrock", "Prompt Engineering", "RAG", "AI Agent"]
+  },
+  {
+    stepNumber: 13,
+    stepTitle: "DevOps 환경에서의 CI/CD",
+    details: "운영환경과 개발환경을 통합·자동화 하기 위한 다양한 기술 / 젠킨스 동작원리 및 파이프라인 / github 와의 연동(gitOps, webhook) / argoCD 활용",
+    category: "cloud",
+    skills: ["Jenkins", "CI/CD", "GitOps", "ArgoCD", "Webhook"]
+  },
+  {
+    stepNumber: 14,
+    stepTitle: "서비스메시 기반의 MSA 설계 및 관리",
+    details: "통신을 제어하고 모니터링하는 서비스 메시 솔루션 / 서비스 메시의 이해 / 이스티오 게이트웨이와 프락시 / 네트워크 제어하기",
+    category: "cloud",
+    skills: ["Service Mesh", "MSA", "Istio", "Proxy"]
+  },
+  {
+    stepNumber: 15,
+    stepTitle: "오픈스택 기반 프라이빗 클라우드 구현",
+    details: "클라우드 환경을 직접 구축하는 오픈소스 컨테이너 플랫폼 / 컨테이너 기반의 오픈스택 배포(kolla-ansible) / 네트워크/컨트롤/스토리지/컴퓨트 서비스 / 오픈스택환경에서의 쿠버네티스 / 로드밸런서(octavia), kubernetes 서비스 환경 구성 / (토이프로젝트) 오픈스택 환경에서의 웹서비스 환경 구현 (octavia, nova, trove, cinder)",
+    category: "cloud",
+    skills: ["OpenStack", "Kolla-Ansible", "Octavia", "Private Cloud"]
+  },
+  {
+    stepNumber: 16,
+    stepTitle: "오픈시프트(OpenShift) 구축",
+    details: "엔터프라이즈 규모의 쿠버네티스 클라우드 플랫폼 / 컨테이너 기술과 서비스 생성 / 애플리케이션 배포 및 트러블 슈팅",
+    category: "cloud",
+    skills: ["OpenShift", "RedHat", "Enterprise Kubernetes", "Troubleshooting"]
+  },
+  {
+    stepNumber: 17,
+    stepTitle: "KT클라우드 플랫폼",
+    details: "국내 최고의 퍼블릭 클라우드를 만나다! / KT클라우드 공인교육",
+    category: "cloud",
+    skills: ["KT Cloud", "Public Cloud", "Enterprise Cloud"]
+  },
+  {
+    stepNumber: 18,
+    stepTitle: "Azure 클라우드",
+    details: "Azure 로 시작하는 퍼블릭 클라우드 서비스 / 사용자와 그룹, 액세스 관리 / 가상네트워크, 가상머신, 스토리지 / 고가용성과 부하분산",
+    category: "cloud",
+    skills: ["Azure", "Active Directory", "Load Balancer", "Azure Storage"]
+  },
+  {
+    stepNumber: 19,
+    stepTitle: "기본 프로젝트",
+    details: "팀 주제 / 클라우드 인프라 자동화 및 최적화 구축 / 가상화 기반 리소스 관리 시스템 구축 / 클라우드 데이터 백업 및 복구 시스템 구현 / 자율 주제: 개인 맞춤 클라우드 보안 솔루션 구현",
+    category: "project",
+    skills: ["Team Project", "Cloud Automation", "Resource Management", "Security Solution"]
+  },
+  {
+    stepNumber: 20,
+    stepTitle: "심화 프로젝트",
+    details: "팀 주제 / 하이브리드 클라우드 통합 운영 및 최적화 구축 / 클라우드 보안 강화 및 비용 효율화 솔루션 구현 / 자동화 기반 클라우드 모니터링 및 예측 유지보수 시스템 구축 / 자율 주제: 팀별 클라우드 인프라 혁신 구현",
+    category: "project",
+    skills: ["Advanced Project", "Hybrid Cloud", "Cost Optimization", "Monitoring", "Infrastructure Innovation"]
+  },
+  {
+    stepNumber: 21,
+    stepTitle: "실무 통합 프로젝트",
+    details: "팀 주제 / 글로벌 클라우드 인프라 통합 관리 및 운영 구축 / AI 기반 클라우드 리소스 최적화 및 예측 분석 시스템 구현 / Terraform을 활용한 클라우드 인프라 표준화 및 자동화 구축 / 자율 주제: 팀별 클라우드 비용 관리 및 성능 최적화 구현 / ※ 토이프로젝트는 강의 시간중 오후 시간을 할애하여 2~3일 만에 완성함.",
+    category: "project",
+    skills: ["Integrated Project", "Global Infra", "AI Resource Optimization", "Terraform Standardization", "Cost Management"]
+  }
+];
+
+export const KUKBI_CURRICULUM_STEPS: CurriculumStepItem[] = [
+  {
+    stepNumber: 1,
+    stepTitle: "국민내일배움카드 신청 및 심사 가이드",
+    details: "HRD-Net을 통한 모바일/PC 간편 카드 신청 및 거주지 관할 고용센터 연계 대상자 자격 심사 승인 가이드",
+    category: "backend",
+    skills: ["HRD-Net", "내일배움카드", "대상자 자격 확인"]
+  },
+  {
+    stepNumber: 2,
+    stepTitle: "국민취업지원제도(국취제) 1유형 & 2유형 매칭",
+    details: "개인별 소득 분위에 따른 국취제 유형 매칭을 통해 매월 안정적으로 지원되는 구직촉진수당 연계 컨설팅 제공",
+    category: "backend",
+    skills: ["국민취업지원제도", "구직촉진수당", "1:1 밀착 연계"]
+  },
+  {
+    stepNumber: 3,
+    stepTitle: "QR 모바일 출결 및 오프라인 실무 훈련 가이드",
+    details: "오프라인 전용 QR 출석 체크 시스템 작동 방식 및 지각/조퇴/결석 대처 및 특별 수당 조건 상세 안내",
+    category: "core",
+    skills: ["오프라인 출결", "훈련 시간 이수", "지정 출석 카드"]
+  },
+  {
+    stepNumber: 4,
+    stepTitle: "매월 단위 훈련장려금 정산 및 추가 지급 혜택",
+    details: "80% 이상 출석 시 기본 지급되는 장려금과 특별 수당을 합산하여 매월 고정 정산 처리 후 입금되는 프로세스 가이드",
+    category: "cloud",
+    skills: ["훈련장려금", "출석 80% 달성", "정산 입금 프로세스"]
+  },
+  {
+    stepNumber: 5,
+    stepTitle: "조기취업 성공 및 우수 수료 혜택 가이드",
+    details: "훈련 진행 도중 조기 취업에 성공하는 경우의 수수료 처리 지원 및 수료 후에도 이어지는 기업 연계 추가 혜택 가이드",
+    category: "project",
+    skills: ["조기취업 지원", "우수 수료 표창", "사후 6개월 케어"]
+  }
+];
+
+export const INTRO_CURRICULUM_STEPS: CurriculumStepItem[] = [
+  {
+    stepNumber: 1,
+    stepTitle: "한국정보교육원 교육 이념 및 미래 비전",
+    details: "현업 맞춤 실무 중심 교육을 통해 IT 핵심 인재를 양성하고, 양질의 일자리를 매칭하는 일자리 창출 선도 비전",
+    category: "backend",
+    skills: ["실무 중심", "핵심인재 양성", "취업 동반자"]
+  },
+  {
+    stepNumber: 2,
+    stepTitle: "고용노동부 지정 우수 훈련기관 주요 연력",
+    details: "설립 이후 20년 동안 검증받은 IT 명문 기관으로서 고용노동부 지정 우수 훈련기관으로 선정되어 축적된 최고의 공신력",
+    category: "core",
+    skills: ["우수훈련기관", "20년 기술 교육", "기관 포상 연혁"]
+  },
+  {
+    stepNumber: 3,
+    stepTitle: "최첨단 강의 인프라 및 실물 장비 실습 환경",
+    details: "단순 가상 컴퓨터가 아닌 실제 구동 장비가 내장된 최첨단 랙 장비 및 실무 인프라 실습실을 직접 운영하는 강점",
+    category: "cloud",
+    skills: ["인프라 실습 장비", "최신형 고사양 PC", "쾌적한 전용 자습실"]
+  },
+  {
+    stepNumber: 4,
+    stepTitle: "300+개 협력 중견/대기업 취업 네트워크",
+    details: "수료 시 원스톱으로 우선 추천 채용 인터뷰 기회가 제공되는 탄탄한 유망 중견기업 및 IT 계열 협력 네트워크 운영",
+    category: "ai",
+    skills: ["협약 기업 연계", "실전 모의면접", "채용 박람회"]
+  },
+  {
+    stepNumber: 5,
+    stepTitle: "평생 수료생 케어 및 무상 사후 관리 가이드",
+    details: "수료 이후 첫 이직이나 경력 관리, 기술 보충 스터디 등 지속해서 최고의 성장을 뒷받침해 주는 사후 지원 프로그램",
+    category: "project",
+    skills: ["이직 경력 상담", "오프라인 보충 학습", "평생 수료증 혜택"]
+  }
+];
+
 
 export const METRIC_CARDS: MetricCard[] = [
   {

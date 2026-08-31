@@ -18,7 +18,11 @@ import { StipendCalculatorModal } from './components/StipendCalculatorModal';
 import { StickyBottomBar } from './components/StickyBottomBar';
 import { CustomCursor } from './components/CustomCursor';
 
-export default function App() {
+interface AppProps {
+  courseType?: 'kukbi' | 'fullstack' | 'cloud' | 'intro';
+}
+
+export default function App({ courseType = 'fullstack' }: AppProps) {
   const [isApplicationOpen, setIsApplicationOpen] = useState(false);
   const [isCalculatorOpen, setIsCalculatorOpen] = useState(false);
 
@@ -51,6 +55,7 @@ export default function App() {
         <HeroSection
           onOpenApplication={handleOpenApplication}
           onOpenCalculator={() => setIsCalculatorOpen(true)}
+          courseType={courseType}
         />
 
         {/* SECTION 2: Key Trust Metrics */}
@@ -72,7 +77,9 @@ export default function App() {
         <CareerSupportSection />
 
         {/* SECTION 8: Curriculum Roadmap */}
-        <CurriculumSection />
+        <CurriculumSection
+          courseType={courseType}
+        />
 
         {/* SECTION 9: Student Interviews */}
         <StudentInterviewsSection />

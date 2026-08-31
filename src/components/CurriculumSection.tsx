@@ -1,20 +1,38 @@
 import React, { useState } from 'react';
-import { CURRICULUM_STEPS } from '../data/bootcampData';
+import { CURRICULUM_STEPS, CLOUD_CURRICULUM_STEPS, KUKBI_CURRICULUM_STEPS, INTRO_CURRICULUM_STEPS } from '../data/bootcampData';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import { ScrollReveal, StaggerContainer, StaggerItem } from './ScrollReveal';
 
-export const CurriculumSection: React.FC = () => {
+interface CurriculumSectionProps {
+  courseType?: 'kukbi' | 'fullstack' | 'cloud' | 'intro';
+}
+
+export const CurriculumSection: React.FC<CurriculumSectionProps> = ({ courseType = 'fullstack' }) => {
   const [openStep, setOpenStep] = useState<number | null>(1); // Step 1 open by default
   const [activeCategory, setActiveCategory] = useState<string>('all');
+
+  const steps = courseType === 'cloud' 
+    ? CLOUD_CURRICULUM_STEPS 
+    : courseType === 'kukbi' 
+    ? KUKBI_CURRICULUM_STEPS 
+    : courseType === 'intro' 
+    ? INTRO_CURRICULUM_STEPS 
+    : CURRICULUM_STEPS;
 
   const toggleStep = (stepNumber: number) => {
     setOpenStep(openStep === stepNumber ? null : stepNumber);
   };
 
   const getCategoryBadge = (category: string) => {
+    if (courseType === 'kukbi') {
+      return <span className="bg-[#c5a47e]/10 text-[#c5a47e] border border-[#c5a47e]/20 px-2.5 py-0.5 rounded text-[11px] font-semibold">국비지원 제도</span>;
+    }
+    if (courseType === 'intro') {
+      return <span className="bg-[#e2d1c3]/10 text-[#e2d1c3] border border-[#e2d1c3]/20 px-2.5 py-0.5 rounded text-[11px] font-semibold">기관 소개</span>;
+    }
     switch (category) {
       case 'backend':
-        return <span className="bg-[#c5a47e]/10 text-[#c5a47e] border border-[#c5a47e]/20 px-2.5 py-0.5 rounded text-[11px] font-semibold">Backend / Java</span>;
+        return <span className="bg-[#c5a47e]/10 text-[#c5a47e] border border-[#c5a47e]/20 px-2.5 py-0.5 rounded text-[11px] font-semibold">{courseType === 'cloud' ? 'Linux & OS' : 'Backend / Java'}</span>;
       case 'web':
         return <span className="bg-[#e2d1c3]/10 text-[#e2d1c3] border border-[#e2d1c3]/20 px-2.5 py-0.5 rounded text-[11px] font-semibold">Frontend / Web</span>;
       case 'cloud':
@@ -28,10 +46,12 @@ export const CurriculumSection: React.FC = () => {
     }
   };
 
-  const filteredSteps = CURRICULUM_STEPS.filter((item) => {
+  const filteredSteps = steps.filter((item) => {
+    if (courseType === 'kukbi' || courseType === 'intro') return true;
     if (activeCategory === 'all') return true;
     return item.category === activeCategory;
   });
+
 
   return (
     <section id="curriculum" className="py-16 md:py-24 bg-[#0a0b0d] relative border-t border-[#c5a47e]/15 overflow-hidden w-full max-w-full">
@@ -45,35 +65,40 @@ export const CurriculumSection: React.FC = () => {
               커리큘럼 - 전문가로 성장하는 <br />실무완성 커리큘럼
             </h2>
             <p className="mt-3 text-base sm:text-lg text-gray-300 font-medium leading-relaxed">
-              기초 문법부터 Spring Boot, Docker, GCP 클라우드 배포, AI LLM API 이식, 그리고 3차 실무 프로젝트까지 체계적 완성.
+              {courseType === 'cloud'
+                ? '리눅스 기초부터 AWS/GCP 멀티클라우드, IaC(Terraform), Kubernetes 운영, CI/CD 자동화까지 실무 중심의 체계적 완성.'
+                : '기초 문법부터 Spring Boot, Docker, GCP 클라우드 배포, AI LLM API 이식, 그리고 3차 실무 프로젝트까지 체계적 완성.'}
             </p>
           </div>
         </ScrollReveal>
 
 
         {/* Category Tabs */}
-        <div className="flex items-center justify-center gap-2 overflow-x-auto pb-4 mb-8">
-          {[
-            { id: 'all', label: '전체 (14단계)' },
-            { id: 'backend', label: 'Java & 백엔드' },
-            { id: 'web', label: '웹 프론트엔드' },
-            { id: 'cloud', label: '클라우드 & CI/CD' },
-            { id: 'ai', label: '생성형 AI & RAG' },
-            { id: 'project', label: '실무 프로젝트' }
-          ].map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveCategory(tab.id)}
-              className={`px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all ${
-                activeCategory === tab.id
-                  ? 'bg-[#c5a47e] text-black font-bold shadow-lg shadow-[#c5a47e]/20'
-                  : 'bg-[#12141a] text-gray-400 hover:text-white border border-[#c5a47e]/15'
-              }`}
-            >
-              {tab.label}
-            </button>
-          ))}
-        </div>
+        {(courseType === 'fullstack' || courseType === 'cloud') && (
+          <div className="flex items-center justify-center gap-2 overflow-x-auto pb-4 mb-8">
+            {[
+              { id: 'all', label: `전체 (${steps.length}단계)` },
+              { id: 'backend', label: courseType === 'cloud' ? 'Linux & OS' : 'Java & 백엔드' },
+              { id: 'web', label: courseType === 'cloud' ? '네트워크 기초' : '웹 프론트엔드' },
+              { id: 'cloud', label: courseType === 'cloud' ? 'AWS & GCP 운영' : '클라우드 & CI/CD' },
+              { id: 'ai', label: courseType === 'cloud' ? 'IaC & AI 활용' : '생성형 AI & RAG' },
+              { id: 'project', label: '실무 프로젝트' }
+            ].map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveCategory(tab.id)}
+                className={`px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all ${
+                  activeCategory === tab.id
+                    ? 'bg-[#c5a47e] text-black font-bold shadow-lg shadow-[#c5a47e]/20'
+                    : 'bg-[#12141a] text-gray-400 hover:text-white border border-[#c5a47e]/15'
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
+        )}
+
 
         {/* Grid Steps List (2-column grid like reference image) */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
